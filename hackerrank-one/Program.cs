@@ -6,7 +6,9 @@ namespace hackerrank_one
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("Hello World!");
+            int simpleArraySum(vector<int> ar){
+                //function
+            }
         }
     }
 }
