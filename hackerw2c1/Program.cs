@@ -1,12 +1,14 @@
 ﻿using System;
 
-namespace hackerw2c1
+namespace CamelCase
 {
+    //string s is a concatenation of multiple English words
+    //Determine how many words are in string s
     class Program
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("Hello World!");
+            WordCount wc = new WordCount();
         }
     }
 }
