@@ -8,15 +8,12 @@
     <link rel = "stylesheet" href="HTML1style.css">
 </head>
 <body>
-    <img>
-    <div>
-        <p class="boldheading">About</p> <!--CSS bolding-->
-        <br>
-        <p>Some text about this website</p>
+    <img  class = "img" src = "html1assignlogo.png"/>
+    <h1 class="boldheading">About</h1> <!--CSS bolding-->
+    <p>Some text about this website<p>
     </div>
-    <br>
     <div>
-        <h1 class="boldheading">Our Locations</h1> <!--CSS bolding-->
+        <h2 class="boldheading">Our Locations</h2> <!--CSS bolding-->
         <ul>
             <li>USA</li>
                 <ul>
@@ -34,7 +31,7 @@
     </div>
     <div>
         <h1 class="boldheading" >Upcoming Classes</h1>
-        <table BORDER="5" CELLPADDING="4" >
+        <table BORDER="1" CELLPADDING="4" CELLSPACING="3" >
             <thead>
                 <tr>
                     <td class="boldcell">Location</td>
@@ -54,6 +51,42 @@
                 </tr>
             </tfoot>
         </table>
+    </div>
+        <h2>Sign up!</h2>
+        <form id="name">
+            <label >Name:</label>
+            <input type ="text">
+        </form>
+        <form id ="email">
+            <label >Email:</label>
+            <input type ="email">
+        </form>
+        <form id ="Dropdown">
+            <label>Location:</label>
+            <select>
+                <option>San Francisco</option>
+                <option>New York</option>
+                <option>Tampa</option>
+                <option>Austin</option>
+            </select>
+        </form>
+        <form id = "gender">
+            <label>Gender:</label>
+            <label for="Male">Male</label>
+            <input type="radio" id="Male">
+            <label for="Feale">Female</label>
+            <input type="radio" id="Feale">
+        </form id="feedback">
+            <label>Experience:</label>
+            <input id="feedback" type="text">
+        </form>
+        <input id="signup" type ="submit" value="Sign up!">
+    <div>
+        <span>
+            <a href="link">Twitter</a>
+        </span>
+        <span><a href="link">Facebook</a></span>
+        <span><a href="link">Flickr</a></span>
     </div>
 </body>
 </html>
