@@ -2,6 +2,9 @@
 
 namespace FinalProject0
 {
+    //To ensure dependency injection interfaces are used
+    //reminder - interfaces allow us to abstract and then force implementation upon instantiation
+
 /*
 place orders to store locations for customers
 add a new customer
@@ -21,7 +24,7 @@ persistent data (to a DB); no hardcoding of data.(prices, customers, order histo
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("Hello World!");
+            
         }
     }
 }
