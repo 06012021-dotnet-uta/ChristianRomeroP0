@@ -1,0 +1,13 @@
+.table {
+border: 1px;
+padding: 4px;
+}
+
+.boldcell{
+font-weight: 700;
+}
+h1 {
+  color: navy;
+  margin-left: 20px;
+}
+
