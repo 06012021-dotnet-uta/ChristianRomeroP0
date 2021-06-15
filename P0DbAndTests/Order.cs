@@ -1,4 +1,4 @@
-namespace P0
+namespace P0DbAndTests
 {
     public class Order 
     {

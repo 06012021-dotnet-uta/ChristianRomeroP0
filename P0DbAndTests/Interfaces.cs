@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace FinalProject0
+namespace P0DbAndTests
 {
 	//all interface here
 	public interface IProduct
@@ -18,24 +18,24 @@ namespace FinalProject0
 		public int Age { get; set; }
 		public string Username { get; set; }
 		public string Password { get; }
-		public int Member { get; set}
+		public int Member { get; set; }
 		public string Mailing{ get; set; }
-		public string City { get; set}
+		public string City { get; set; }
 		public string State { get; set; }
-		public string Zip { get; set}
+		public string Zip { get; set; }
 	}
 
 	public interface ILocation
 	{
-		public string City { get; set}
+		public string City { get; set; }
 		public string State { get; set; }
 		public string Address { get; set; }
-		public string Zip { get; set}
+		public string Zip { get; set; }
 	}
 
 	public interface IInventory
 	{
-		public string StoreId { get; set}
+		public string StoreId { get; set; }
 		public string ProductId { get; set; }
 		public int QuanStore { get; set; }
 	}
