@@ -1,4 +1,4 @@
-using P0DbContext;
+using context;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -9,7 +9,7 @@ namespace P0DbAndTests
     {
         int caseswitch;
         //used for "printing" location menu
-        P0DbContext.P0DbContext context = new P0DbContext.P0DbContext();
+        context.P0DbContext context = new context.P0DbContext();
 
         //content
         public string City { get => throw new System.NotImplementedException(); set => throw new System.NotImplementedException(); }
@@ -20,10 +20,10 @@ namespace P0DbAndTests
 
         public static void StoreView()
         {
-            using (var context = new P0DbContext.P0DbContext())
+            using (var context = new context.P0DbContext())
             {
 
-                List<P0DbContext.Location> storelist = context.Locations.Where(l => l.StoreId >= 0).ToList();
+                List<context.Location> storelist = context.Locations.Where(l => l.StoreId >= 0).ToList();
 
                 //forreach loop to print out the values (if you just write consolewriteline you get memory address)
                 foreach(var store in storelist)
@@ -32,14 +32,12 @@ namespace P0DbAndTests
                 }
 
             }
-
-
         }
 
         //method 3:select stores & output
         public static void SelectStore()
         {
-            P0DbContext.P0DbContext context = new P0DbContext.P0DbContext();
+            context.P0DbContext context = new context.P0DbContext();
             int caseswitch=0;
             System.Console.WriteLine("Please input the number corresponding to the Chubiez location you would like to visit!");
             //output menu of stores aka output two specific columns from the database: storeId and City
@@ -78,7 +76,7 @@ namespace P0DbAndTests
         //method for each location to have inventory
         public static void ShowInven(int caseswitch)//caseswitch is the variable because it corresponds to the StoreId
         {
-            P0DbContext.P0DbContext context = new P0DbContext.P0DbContext();
+            context.P0DbContext context = new context.P0DbContext();
             using (context)
             {
                 //query: left join context.product & context.inventory BASED ON PRODUCTID and 2nd query return all values where storeId = caseswitch
@@ -102,24 +100,16 @@ namespace P0DbAndTests
                 //forreach loop to print out the values (if you just write consolewriteline you get memory address)
                 foreach (var row in joined.Where(c => c.StoreId == caseswitch))
                 {
-                    Console.WriteLine($"ProductId.{row.ProductId}   Item:{row.Make}: {row.Text}   Quantity:{row.QuanStore}   Size: {row.Size}   Price:{row.Price}");
+                    Console.WriteLine($"ProductId.{row.ProductId}   Item:{row.Make}: {row.Text}   Quantity:{row.QuanStore}   Size: {row.Size} " +
+                        $"  Price:{row.Price}");
                 }
-
-                SelectProduct();
 
             }
 
         }
-        
 
 
-        //method to select a product from store inventory
 
-        public static void SelectProduct()
-        {
-            Console.WriteLine("Please select the products you would like to purchase from the store by inputting the ProductId, followed by your desired quantity!");
-            int chosenProduct = Convert.ToInt32(Console.ReadLine());
-            int chosenQuantity = Convert.ToInt32(Console.ReadLine());
-        }
-    }//clas
+
+    }//class
 }//namespace
