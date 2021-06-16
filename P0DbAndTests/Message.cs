@@ -89,9 +89,7 @@ namespace P0DbAndTests
             /*static void CommitCustomer(string Fname, string Lname, int Age, string Username, 
                 string Password, int Member, string Email, string Mailing, string City, string State, int Zip)
             {
-
                 var newCustomer = new P0DbContext.Customer();
-
                 newCustomer.Fname = Fname;
                 newCustomer.Lname = Lname;
                 newCustomer.Age = Age;
@@ -103,9 +101,9 @@ namespace P0DbAndTests
                 newCustomer.City = City;
                 newCustomer.State = State;
                 newCustomer.Zip = Zip;
-
             }
             */
+
             //I understand now see how dependency injection helps by allowing classes to have
             //a built in context instead of making each method instantiate the context
 
@@ -136,6 +134,8 @@ namespace P0DbAndTests
                 // otherwise prompt user to try again.
                 Console.WriteLine("Account information not found. Ensure you are inputting correct information and please try again.");
                 EnteringLogin();
+                //Console.WriteLine('Second failed attempt. Would you like to register an account?")
+                //Register();
             }
         }
 
@@ -179,21 +179,7 @@ namespace P0DbAndTests
             RegisterOrLogIn();
         }
 
-        //selecting a store
-        public static void StoreSelect()
-        {
-            Console.WriteLine("Please select a store you would like to shop from!");
-
-        }
-
-        public static void StoreView()
-        {
-            using (var context = new P0DbContext.P0DbContext())
-            {
-                var query = context.Locations.Where(l => l.StoreId >= 0);
-            }
 
 
-        }
     }//class
 }//namespace

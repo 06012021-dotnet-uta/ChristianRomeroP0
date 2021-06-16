@@ -8,4 +8,5 @@ namespace P0DbAndTests
         public string Size { get => throw new System.NotImplementedException(); set => throw new System.NotImplementedException(); }
         public decimal Price { get => throw new System.NotImplementedException(); set => throw new System.NotImplementedException(); }
     }
+
 }
