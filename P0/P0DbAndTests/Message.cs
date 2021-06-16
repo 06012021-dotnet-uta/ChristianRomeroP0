@@ -21,8 +21,7 @@ namespace P0DbAndTests
 //method to prompt login
         public static void PromptLogin()
         {
-            Console.WriteLine("Please input whether you would like to Register or Login");
-            Console.ReadLine();
+            Console.WriteLine("Please input whether you would like to REGISTER or LOGIN");
         }
 //incorrect login
         public static void IncorrectLogin()
@@ -58,53 +57,56 @@ namespace P0DbAndTests
             int Zip;
             int count = 0;
             //gets first name
-            while (count != 0)
-            {
                 Console.WriteLine("Please enter your first name.");
                 Fname = Console.ReadLine();
                 Console.WriteLine("Please enter your last name.");
                 Lname = Console.ReadLine();
-                Console.WriteLine("Please enter your first name.");
+                Console.WriteLine("Please enter your age.");
                 Age = Convert.ToInt32(Console.ReadLine());
-                Console.WriteLine("Please enter your desired");
+                Console.WriteLine("Please enter your desired username.");
                 Username = Console.ReadLine();
-                Console.WriteLine("Please enter your desired password");
+                Console.WriteLine("Please enter your desired password.");
                 Password = Console.ReadLine();
                 Console.WriteLine("Please enter whether you would like to sign up as a Member! 0 for No, 1 for Yes!");
                 Member = Convert.ToInt32(Console.ReadLine());
-                Console.WriteLine("Please enter your desired password");
+                Console.WriteLine("Please enter your email.");
                 Email = Console.ReadLine();
-                Console.WriteLine("Please enter your desired password");
+                Console.WriteLine("Please enter your mailing address.");
                 Mailing = Console.ReadLine();
-                Console.WriteLine("Please enter your desired password");
+                Console.WriteLine("Please enter your city.");
                 City = Console.ReadLine();
-                Console.WriteLine("Please enter your desired password");
+                Console.WriteLine("Please enter your state.");
                 State = Console.ReadLine();
                 Console.WriteLine("Please enter your Zip Code.");
                 Zip = Convert.ToInt32(Console.ReadLine());
                 count++;
-                //CommitCustomer(Fname, Lname, Age, Username, Password, Member, Email, Mailing, City, State, Zip);
-            }
+                CommitCustomer(Fname, Lname, Age, Username, Password, Member, Email, Mailing, City, State, Zip);
+ 
         }
 
         //method to commit changes
-            /*static void CommitCustomer(string Fname, string Lname, int Age, string Username, 
+            public static void CommitCustomer(string Fname, string Lname, int Age, string Username, 
                 string Password, int Member, string Email, string Mailing, string City, string State, int Zip)
             {
-                var newCustomer = new P0DbContext.Customer();
+            context.P0DbContext context = new context.P0DbContext();
+            using (context)
+            {
+                var newCustomer = new context.Customer();
                 newCustomer.Fname = Fname;
                 newCustomer.Lname = Lname;
                 newCustomer.Age = Age;
                 newCustomer.Username = Username;
                 newCustomer.Password = Password;
-                newCustomer.Member = Member;
+                newCustomer.Member = Convert.ToBoolean(Member);
                 newCustomer.Email = Email;
                 newCustomer.Mailing = Mailing;
                 newCustomer.City = City;
                 newCustomer.State = State;
                 newCustomer.Zip = Zip;
             }
-            */
+
+            }
+            
 
             //I understand now see how dependency injection helps by allowing classes to have
             //a built in context instead of making each method instantiate the context
@@ -136,8 +138,8 @@ namespace P0DbAndTests
                 // otherwise prompt user to try again.
                 Console.WriteLine("Account information not found. Ensure you are inputting correct information and please try again.");
                 EnteringLogin();
-                //Console.WriteLine('Second failed attempt. Would you like to register an account?")
-                //Register();
+                Console.WriteLine("Second failed attempt. Would you like to register an account?");
+                Register();
             }
         }
 
@@ -148,28 +150,23 @@ namespace P0DbAndTests
             PromptLogin();
             string input = Console.ReadLine();
             //If user inputs an invalid registration then prompt again
-            if (input != "Register" && input != "Login")
+            if (input != "REGISTER" && input != "LOGIN")
             {
                 //input validation
                Console.WriteLine("Command does not exist");
                PromptLogin();
             }
-            else
+            if(input == "REGISTER")
             {
-
-                //checks if the username or password exists in the context (database)
-                //context.Customer.Where( x=> x.Username  == usern && x.pswd == pass);
-                //if the login information does not exist in the database output:
-                //IncorrectLogin();
-                if (input == "Register")
-                {
-                    Register();
-                }
-                if (input == "Log in")
-                {
-                    Login();
-                }
+                Register();
+                Console.WriteLine("User successfully registered.");
             }
+            if (input == "LOGIN")
+            {
+                Login();
+            }
+            
+            
          }
 
         public static void WelcomeScreen()
@@ -178,7 +175,21 @@ namespace P0DbAndTests
             RegisterOrLogIn();
         }
 
-
+        public static void ChooseView()
+        {
+            Console.WriteLine("Would you like to view customer data? Y/N?");
+            string input = Console.ReadLine();
+            if(input == "Y")
+            {
+                Console.WriteLine("Input a customerId to view data.");
+                int num= Convert.ToInt32(Console.ReadLine()); ;
+                Customer.CustomerOrderHistory(num);
+            }
+            if(input =="N")
+            {
+                Program.StartShopping();
+            }
+        }
 
     }//class
 }//namespace
