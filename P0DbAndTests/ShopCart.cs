@@ -5,32 +5,18 @@ namespace P0DbAndTests
 {
     public class Cart
     {
+        //Shopping CART reconstructed: 
+
         //method to add item to cart
         //Think. What do we need in each order: quantity, productId, CustomerId, timestamp, and StoreId
         // class var 
-        // public List<Product> products;
-        
-        // instance var 
-        //A list of datatype "Product" because the cart holds all the product.
-        public List<Product> cart;
-        // constructor
-        public Cart(){
-            this.cart = new List<Product>();
-        }
+ 
 
-        // instance methods 
+        //what if we make a constructor for the shopping cart (cart class) that takes input parameters of products and adds them to a list
 
-        //we want a method that verifies for 
-        public void AddProduct(Product p){
-            if (cart.Count > 5){
-                Console.WriteLine("cart is full, Oreder may be rejected");
-            }
-            cart.Add(p);
-        }
-        // check cart contents
-        public int GetCartSize(){
-            int cartCOntent = cart.Count;
-            return cartCOntent;
-        }
-    }
-}
+        //"print" all items in a store's inventory (method ShowInven)
+
+
+
+    }//class
+}//namespace
