@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace P0DbContext
+namespace context
 {
     public class Class1
     {

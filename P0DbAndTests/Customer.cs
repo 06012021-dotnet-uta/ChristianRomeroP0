@@ -22,15 +22,15 @@ namespace P0DbAndTests
         public static void SortCustomersFirst()
         {
             //
-            P0DbContext.P0DbContext context = new P0DbContext.P0DbContext();
+            context.P0DbContext context = new context.P0DbContext();
             using (context)
             {
                 //create an ordered list of context type Customer via lambda
-                List<P0DbContext.Customer> namedList = context.Customers.OrderBy(b => b.Fname).ToList();
+                List<context.Customer> namedList = context.Customers.OrderBy(b => b.Fname).ToList();
                 Console.WriteLine("All customers and basic information, ordered by first name.");
                 foreach (var cust in namedList)//output basic information
                 {
-                    Console.WriteLine($"Name: {cust.Fname} {cust.Lname}  -  Email: {cust.Email}  - " +
+                    Console.WriteLine($"Name: {cust.Fname} {cust.Lname}  ID: {cust.CustomerId}   -  Email: {cust.Email}  - " +
                         $"Address: {cust.Mailing} {cust.State},{cust.State} {cust.Zip}");
                 }
             }
@@ -38,12 +38,12 @@ namespace P0DbAndTests
 
         public static void SortCustomersMemberStatus()
         {
-            P0DbContext.P0DbContext context = new P0DbContext.P0DbContext();
+            context.P0DbContext context = new context.P0DbContext();
             using (context)
             {
                 //create an ordered list of context type Customer via lambda
-                List<P0DbContext.Customer> memberList = context.Customers.OrderBy(b => b.Member).ToList();
-                Console.WriteLine("All customers and basic information, with members first.");
+                List<context.Customer> memberList = context.Customers.OrderBy(b => b.Member).ToList();
+                Console.WriteLine("All customers and basic information, with non-members first.");
                 foreach (var cust in memberList)//output basic information
                 {
                     Console.WriteLine($"Name: {cust.Fname} {cust.Lname}  - Member:{cust.Member}   Email: {cust.Email}  - " +
@@ -51,19 +51,36 @@ namespace P0DbAndTests
                 }
             }
         }
-
+        //method to show all order history of a customer
         public static void CustomerOrderHistory(int customerId)
         {
-            P0DbContext.P0DbContext context = new P0DbContext.P0DbContext();
+            context.P0DbContext context = new context.P0DbContext();
             using (context)
             {
                 //select star
-                List<P0DbContext.Order> history = context.Orders.OrderBy(b => b.CustomerId == customerId).ToList();
+                List<context.Order> history = context.Orders.OrderBy(b => b.CustomerId == customerId).ToList();
                 Console.WriteLine("Order History for a customer");
+                int count = 0;
+                foreach (var order in history.Where(c => c.StoreId == customerId))
+                {
+                    Console.WriteLine($"The order history for {order.CustomerId}: {count++}. {order.QuanOrder} " +
+                        $"{order.Product} ordered on {order.DateOrder}");
+                }
+            }
+        }
+        public static void AllOrderHistory(int customerId)
+        {
+            context.P0DbContext context = new context.P0DbContext();
+            using (context)
+            {
+                //select star
+                List<context.Order> history = context.Orders.OrderBy(b => b.CustomerId == customerId).ToList();
+                Console.WriteLine("Order History for all customers");
                 int count = 0;
                 foreach (var order in history)
                 {
-                    Console.WriteLine($"The order history for {order.Customer}: {count++}. {order.QuanOrder} {order.Product} ordered on {order.DateOrder}");
+                    Console.WriteLine($"The order history for {order.CustomerId}: {count++}. {order.QuanOrder} " +
+                        $"{order.Product} ordered on {order.DateOrder}");
                 }
             }
         }
@@ -73,10 +90,10 @@ namespace P0DbAndTests
         {
             //query: select based on store 
 
-            using (var db = new P0DbContext.P0DbContext())
+            using (var db = new context.P0DbContext())
             {
                 //select star
-                List<P0DbContext.Customer> lister = db.Customers.OrderBy(b => b.Fname).ToList();
+                List<context.Customer> lister = db.Customers.OrderBy(b => b.Fname).ToList();
                 Console.WriteLine("All customers and basic information, ordered by first name.");
                 foreach (var cust in lister)
                 {

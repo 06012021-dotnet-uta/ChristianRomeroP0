@@ -1,13 +1,13 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using P0DbContext;
+using context;
 
 namespace P0DbAndTests
 {
     public class Messages
     {
-        P0DbContext.P0DbContext context = new P0DbContext.P0DbContext();
+        context.P0DbContext context = new context.P0DbContext();
         //properties to be used in methods
 
 
@@ -118,10 +118,10 @@ namespace P0DbAndTests
 
         public static void Login()
         {
-            P0DbContext.P0DbContext context = new P0DbContext.P0DbContext();
-            Console.WriteLine("Please enter username:");
+            context.P0DbContext context = new context.P0DbContext();
+            Console.WriteLine("Please enter your username:");
             string usern = Console.ReadLine();
-            Console.WriteLine("Please enter password:");
+            Console.WriteLine("Please enter your password:");
             string pwd = Console.ReadLine();
             //check if username and password exist in db..
             if (context.Customers.Any(u => u.Username == usern) && context.Customers.Any( u => u.Password == pwd))
@@ -167,9 +167,6 @@ namespace P0DbAndTests
                 {
                     Login();
                 }
-
-
-
             }
          }
 
