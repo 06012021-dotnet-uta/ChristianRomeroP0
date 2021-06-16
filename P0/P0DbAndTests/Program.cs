@@ -67,10 +67,10 @@ namespace P0DbAndTests
 
             //method to "enter" a store (view store inventory) after user selects a location
             StartShopping();
- //           Location.SelectStore();
+            //           Location.SelectStore();
 
             //Shop
-   //         Order.CreateCart();
+            //         Order.CreateCart();
 
             /*Method to sort customers data
             Customer.SortCustomersFirst();
@@ -78,7 +78,7 @@ namespace P0DbAndTests
             Customer.SortCustomersMemberStatus();
             */
 
-
+            
             /*method to recall all order history for a customer
             Customer.CustomerOrderHistory(1);
             Customer.AllOrderHistory(1);
