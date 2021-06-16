@@ -61,7 +61,7 @@ namespace P0DbAndTests
                 List<context.Order> history = context.Orders.OrderBy(b => b.CustomerId == customerId).ToList();
                 Console.WriteLine("Order History for a customer");
                 int count = 0;
-                foreach (var order in history.Where(c => c.StoreId == customerId))
+                foreach (var order in history.Where(c => c.CustomerId == customerId))
                 {
                     Console.WriteLine($"The order history for {order.CustomerId}: {count++}. {order.QuanOrder} " +
                         $"{order.Product} ordered on {order.DateOrder}");

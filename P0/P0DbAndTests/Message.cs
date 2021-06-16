@@ -30,8 +30,10 @@ namespace P0DbAndTests
         Console.WriteLine("The user information does not exist. Please make sure you typed the correct username and password.");
         }
 
-        /*I was struggling with how to add a new account because I was trying 
-        I found some help through Winston's code because he broke it into two steps:
+        /*I was struggling with how to add a new account because I was trying to implement it similarly to the AddOrder mmethod, but 
+         * it kept giving me an error.
+        I found some help through Winston's code. I wholly credit him for this code and I outlined the understanding I gleaned from
+        seeing his code and explaining the understanding gained.
         1) create variables within the scope of the method that will be assigned values according
         to the user input. Creating these within the scope of the method means they will 
         disappear after execution, but that's ok because
