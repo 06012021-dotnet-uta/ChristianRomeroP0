@@ -47,6 +47,7 @@ namespace P0DbAndTests
                         if (row.QuanStore <= chosenQuantity)
                         {
                             Console.WriteLine("You have selected a quantity that is too large for this store's inventory. Please select a different quantity.");
+                            SelectProduct();
                         }
                         else
                         {
@@ -74,6 +75,7 @@ namespace P0DbAndTests
                             int customId = Convert.ToInt32(Console.ReadLine());
                             int storeId = Convert.ToInt32(Console.ReadLine());
                             Cart.AddOrder(storeId, chosenProduct, chosenQuantity, customId);
+                            Cart.OrderReview(storeId, chosenProduct, chosenQuantity, customId);
                             Console.WriteLine("Would you like to continue shopping? Please input CONTINUE or CHECKOUT.");
                             string conCheck = Console.ReadLine();
                             if (conCheck == "CONTINUE")

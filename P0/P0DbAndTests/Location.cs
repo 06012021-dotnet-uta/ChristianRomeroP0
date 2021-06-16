@@ -109,7 +109,22 @@ namespace P0DbAndTests
         }
 
 
+        //method to recall all order history for a store
+        public static void StoreOrderHistory(int storeId)
+        {
+            //query: select based on store 
 
+            using (var db = new context.P0DbContext())
+            {
+                //select star
+                List<context.Order> storeHist = db.Orders.OrderBy(b => b.StoreId).ToList();
+                Console.WriteLine("Order history for a store");
+                foreach (var stor in storeHist.Where(b => b.StoreId == storeId))
+                {
+                    Console.WriteLine($"Store: {stor.Store} ProductId:{stor.ProductId}  Quantity:{stor.QuanOrder}  Date Ordered: {stor.DateOrder}");
+                }
+            }
+        }
 
     }//class
 }//namespace

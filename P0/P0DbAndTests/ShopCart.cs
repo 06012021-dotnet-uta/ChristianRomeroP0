@@ -38,7 +38,7 @@ namespace P0DbAndTests
                 IEnumerable<context.Order> custs = orders.Where(c => c.StoreId == storeId && c.CustomerId == customId && c.ProductId == chosenProduct);
                 foreach (var cust in custs)//output basic information
                 {
-                    Console.WriteLine($"Receipt: {cust.QuanOrder} {cust.ProductId} for {cust.Customer} ordered at {cust.DateOrder}.");
+                    Console.WriteLine($"Receipt: {cust.QuanOrder} ProductId:{cust.ProductId} for CustomerId:{cust.Customer} ordered at {cust.DateOrder}.");
                     //in retrospect, after reviewing, this ^ output is better as a "receipt"
                 }
             }

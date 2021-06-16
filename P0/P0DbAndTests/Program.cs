@@ -37,6 +37,7 @@ namespace P0DbAndTests
             if (start == "LOGOUT" || start.ToLower() == "logout")
             {
                 Console.WriteLine("You have successfully logged out.");
+                Messages.Login();
             }
             if (start == "QUIT" || start.ToLower() == "quit")
             {
@@ -44,7 +45,7 @@ namespace P0DbAndTests
             }
             else
             {
-                Console.WriteLine("Input not recognized.Please input START when you would like to start shopping, or LGGOUT if you would like to logout");
+                Console.WriteLine("Input not recognized.Please input START when you would like to start shopping, or LOGOUT if you would like to logout");
             }
         }
 
@@ -62,8 +63,7 @@ namespace P0DbAndTests
 
 
             //Opening console UI & welcoming user
-            Messages.Welcome();
-            Messages.Login();
+            Messages.WelcomeScreen();
 
             //method to "enter" a store (view store inventory) after user selects a location
             StartShopping();
@@ -77,8 +77,11 @@ namespace P0DbAndTests
             Console.WriteLine("\n");
             Customer.SortCustomersMemberStatus();
             */
+            Console.WriteLine("\n+Demo: store order history for Tampa.");
+            Location.StoreOrderHistory(1);
+            Messages.ChooseView();
 
-            
+
             /*method to recall all order history for a customer
             Customer.CustomerOrderHistory(1);
             Customer.AllOrderHistory(1);

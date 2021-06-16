@@ -85,22 +85,7 @@ namespace P0DbAndTests
             }
         }
 
-        //method to recall all order history for a store
-        static void StoreOrderHistory()
-        {
-            //query: select based on store 
 
-            using (var db = new context.P0DbContext())
-            {
-                //select star
-                List<context.Customer> lister = db.Customers.OrderBy(b => b.Fname).ToList();
-                Console.WriteLine("All customers and basic information, ordered by first name.");
-                foreach (var cust in lister)
-                {
-                    //Console.WriteLine($"Name: {cust.Fname} {cust.Lname}  -  Email: {cust.Email}  - {cust. ");
-                }
-            }
-        }
 
     }
     //class
